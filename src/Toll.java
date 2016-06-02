@@ -1,17 +1,21 @@
 
 public class Toll {
 	private String barrierStatus = "close";
-	private float toolPrice;
-	
-	private Carro car = new Carro();
+	private double tollPrice;
+
+	private Car car = new Car();
 	private SmartCard smartCard = new SmartCard();
-	private Display display = new Display(this.toolPrice, this.smartCard.getSaldo());
-	// ??????
-	private Camera camera = new Camera;
+	private Camera camera = new Camera(); 
+
+	public Toll (double tollPrice) {
+		this.tollPrice = 5.00;
+	}
+	
+	private Display display = new Display(this.tollPrice, smartCard.getBalance());
 	
 	//Verifica se o carro possui o computador com saldo disponivel
-	public Boolean verifyCarComputer() {
-		if (car.hasComputer && smartCard.getSaldo() >= this.toolPrice) {
+	public boolean verifyCarComputer() {
+		if (car.hasComputer() && car.useSmartCard(this.tollPrice)) {
 			return true;
 		} else {
 			return false;
@@ -30,7 +34,7 @@ public class Toll {
 	}
 	
 	// Checa se o carro possui o computador ou se o pagamento foi efetivado
-	public Boolean paymentIsReceived() {
+	public boolean paymentIsReceived() {
 		if (verifyCarComputer()) {
 			return true;
 		} else {
@@ -40,7 +44,7 @@ public class Toll {
 	}
 	
 	public void verifyLicensePlate() {
-		camera.getCarsLicensePlate();
+		camera.getLicense();
 		
 		// Connect to DB?
 	}

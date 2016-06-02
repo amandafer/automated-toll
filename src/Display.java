@@ -2,11 +2,11 @@ import java.util.Scanner;
 
 public class Display {
 	private String paymentMethod;
-	private double toolPrice, smartCardBalance;
+	private double tollPrice, smartCardBalance;
 	private Scanner scan = new Scanner(System.in);
 	
-	public Display(double toolPrice, double smartCardBalance) {
-		this.toolPrice = toolPrice;
+	public Display(double tollPrice, double smartCardBalance) {
+		this.tollPrice = tollPrice;
 		this.smartCardBalance = smartCardBalance;
 	}
 	
@@ -29,12 +29,13 @@ public class Display {
 				case("dinheiro"):
 					System.out.println("Entre com o valor: \n");
 					double money = scan.nextFloat();
-					double change = money - this.toolPrice;
+					double change = money - this.tollPrice;
+					System.out.println("Toll price: " + this.tollPrice);
 					
 					while (change < 0) {
 						System.out.println("Faltam R$" + change + " para o pagamento do pedágio.\n");
 						money = scan.nextFloat();
-						change = money - this.toolPrice;
+						change = money - this.tollPrice;
 						
 						// TODO: cancelar operacao e receber o dinheiro de volta
 					}
@@ -57,7 +58,7 @@ public class Display {
 					break;
 				
 				case("smartcard"):
-					if (this.smartCardBalance >= this.toolPrice) {
+					if (this.smartCardBalance >= this.tollPrice) {
 						paid = true;
 						System.out.println("Pagamento realizado.\n");
 					} else {

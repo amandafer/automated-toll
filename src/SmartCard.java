@@ -2,51 +2,41 @@
  * Classe para modelar a entidade smart-card
  * @author AlbertoPassini
  */
-public class SmartCard 
-{
+public class SmartCard {
+	double BALANCE = 10.00;
+	
     /* Atributo da classe */
-    private Double saldo;
-    
-    /* Métodos construtores */
-    public SmartCard(){}
+    private double balance = BALANCE;
 
-    public SmartCard(Double saldo) 
-    {
-        this.saldo = saldo;
-    }
-    
     /* Getters and setters */
-    public Double getSaldo() 
-    {
-        return saldo;
-    }
-
-    public void setSaldo(Double saldo) 
-    {
-        this.saldo = saldo;
+    public Double getBalance() {
+        return this.balance;
     }
     
     //Método para creditar um valor no smart-card e retornar o saldo atualizado
-    public String credita(Double valor)
-    {
+    /*
+    public String credita(Double valor) {
         saldo = saldo + valor;
         
         return "Saldo Atual: " + saldo;
     }
+    */
     
     //Método para debitar um valor no smart-card e retornar o saldo atualizado
-    public String debita(Double valor)
-    {
+    public boolean debit(double value) {
         //Só debita se tiver saldo suficiente
-        if((saldo-valor)>=0)
-        {
-            saldo = saldo - valor;
-            
-            return "Saldo Atual: " + saldo;
-        }
-        else
-        {
-            return "Você não possui saldo suficiente.";
-        }
+    	try {
+	        if ((balance-value)>=0) {
+	            this.balance = this.balance - value;
+	            return true;
+	            //return "Saldo Atual: " + balance;
+	        } else {
+	        	return false;
+	            //return "Você não possui saldo suficiente.";
+	        }
+    	} catch (Exception exception) {
+    		System.out.println(exception.getStackTrace());
+    		return false;
+    	}
     }
 }
