@@ -34,7 +34,7 @@ public class Display {
 					
 					while (change < 0) {
 						System.out.println("Faltam R$" + change + " para o pagamento do pedágio.\n");
-						money = scan.nextFloat();
+						money += scan.nextDouble();
 						change = money - this.tollPrice;
 						
 						// TODO: cancelar operacao e receber o dinheiro de volta
@@ -50,6 +50,7 @@ public class Display {
 					
 				// Supondo que as transacoes com o cartao funcionem
 				case("cartão"):
+				case("cartao"):
 					Boolean valid = checkCard();
 					if (valid)
 						paid = true;
@@ -66,15 +67,15 @@ public class Display {
 					}
 				
 				default:
-					System.out.println("Pagamento cancelado.\n");
+					System.out.println("Comando invalido. Pagamento cancelado.\n");
 					return paid;
 			}
 		}
 		return paid;
 	}
 	
-	// TODO if needed
-	public Boolean checkCard() {
+	// Check the card with the credit card providers
+	public boolean checkCard() {
 		return true;
 	}
 }

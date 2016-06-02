@@ -1,17 +1,16 @@
 
 public class Toll {
 	private String barrierStatus = "close";
-	private double tollPrice;
+	private double tollPrice = 0.00;
 
 	private Car car = new Car();
 	private SmartCard smartCard = new SmartCard();
-	private Camera camera = new Camera(); 
+	private Camera camera = new Camera();
+	private Display display;
 
 	public Toll (double tollPrice) {
-		this.tollPrice = 5.00;
+		this.tollPrice = tollPrice;
 	}
-	
-	private Display display = new Display(this.tollPrice, smartCard.getBalance());
 	
 	//Verifica se o carro possui o computador com saldo disponivel
 	public boolean verifyCarComputer() {
@@ -38,6 +37,7 @@ public class Toll {
 		if (verifyCarComputer()) {
 			return true;
 		} else {
+			display = new Display(this.tollPrice, smartCard.getBalance());
 			Boolean paymentIsMade = display.getPayment();
 			return paymentIsMade;
 		}
