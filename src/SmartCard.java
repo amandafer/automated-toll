@@ -3,7 +3,7 @@
  * @author AlbertoPassini
  */
 public class SmartCard {
-	double BALANCE = 10.00;
+	double BALANCE = 2.00;
 	
     /* Atributo da classe */
     private double balance = BALANCE;

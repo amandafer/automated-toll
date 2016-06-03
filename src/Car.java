@@ -12,7 +12,7 @@ public class Car  {
     private Camera camera = new Camera();
     private Data data = new Data(this.licensePlate);
     
-    boolean COMPUTER = false;
+    boolean COMPUTER = true;
     
     /* Metodos construtores */
     public Car() {
