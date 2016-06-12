@@ -4,10 +4,11 @@ public class Display {
 	private String paymentMethod;
 	private double tollPrice, smartCardBalance;
 	private Scanner scan = new Scanner(System.in);
+	private SmartCard smartCard = new SmartCard();
 	
-	public Display(double tollPrice, double smartCardBalance) {
+	public Display(double tollPrice) {
 		this.tollPrice = tollPrice;
-		this.smartCardBalance = smartCardBalance;
+		this.smartCardBalance = smartCard.getBalance();
 	}
 	
 	public void chooseTypeOfPayment() {
@@ -21,10 +22,11 @@ public class Display {
 	}
 	
 	public Boolean getPayment() {
-		chooseTypeOfPayment();
 		Boolean paid = false;
 		
 		while (!paid) {
+			chooseTypeOfPayment();
+			
 			switch(this.paymentMethod) {
 				case("dinheiro"):
 					System.out.println("Entre com o valor: \n");
@@ -68,7 +70,6 @@ public class Display {
 				
 				default:
 					System.out.println("Comando invalido. Pagamento cancelado.\n");
-					return paid;
 			}
 		}
 		return paid;

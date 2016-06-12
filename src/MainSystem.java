@@ -1,12 +1,7 @@
 /**
- *
- * @author JCMBBH-74
+ * Sistema de pedagio
  */
 public class MainSystem {
-
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
         // TODO instantiate tolls
     	double tollPrice = 5.00;

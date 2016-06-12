@@ -1,12 +1,12 @@
 
 public class Toll {
 	private String barrierStatus = "close";
-	private double tollPrice = 0.00;
+	private double tollPrice;
 
 	private Car car = new Car();
-	private SmartCard smartCard = new SmartCard();
-	private Camera camera = new Camera();
 	private Display display;
+    private DetranDBController data = new DetranDBController(car.getLicensePlate());
+    private TollDBController tollData = new TollDBController();
 
 	public Toll (double tollPrice) {
 		this.tollPrice = tollPrice;
@@ -37,15 +37,21 @@ public class Toll {
 		if (verifyCarComputer()) {
 			return true;
 		} else {
-			display = new Display(this.tollPrice, smartCard.getBalance());
+			display = new Display(this.tollPrice);
 			Boolean paymentIsMade = display.getPayment();
 			return paymentIsMade;
 		}
 	}
 	
 	public void verifyLicensePlate() {
-		camera.getLicense();
+		boolean legal = data.checkLicensePlate();
 		
-		// Connect to DB?
+		if(!legal) {
+			data.sendAlert();
+		}
+	}
+	
+	public void sendCarInfo() {
+		tollData.saveCarInfo(car.getInfo());
 	}
 }
