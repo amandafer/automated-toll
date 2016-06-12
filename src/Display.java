@@ -1,5 +1,10 @@
 import java.util.Scanner;
 
+/**
+ * Classe que gerencia a forma de pagamento do motorista.
+ * É acessada apenas se o carro não possui um computador de bordo com saldo.
+ */
+
 public class Display {
 	private String paymentMethod;
 	private double tollPrice, smartCardBalance;
@@ -77,6 +82,6 @@ public class Display {
 	
 	// Check the card with the credit card providers
 	public boolean checkCard() {
-		return true;
+		throw new UnsupportedOperationException("Not supported yet.");
 	}
 }

@@ -1,7 +1,7 @@
 /**
- * Classe para modelar a entidade computador de bordo
- * @author AlbertoPassini
+ * Classe para modelar a entidade computador de bordo.
  */
+
 public class Computer {
     private SmartCard smartCard = new SmartCard();
     

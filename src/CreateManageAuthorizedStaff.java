@@ -5,6 +5,8 @@ public class CreateManageAuthorizedStaff implements Authenticate {
 	private int companyID;
 	private Date timeOfAccess = new Date();
 	
+	private TollDBController tollData = new TollDBController();
+	
 	public CreateManageAuthorizedStaff (String name, String jobTitle, int companyID, 
 								  String password, String login) {
 		this.name = name;
@@ -26,6 +28,10 @@ public class CreateManageAuthorizedStaff implements Authenticate {
 		String report = this.name + " , ID " + this.companyID + ", acessou o sistema às " + 
 						this.timeOfAccess;
 		return report;
+	}
+	
+	public void sendStaffData() {
+		tollData.saveStaffInfo(this);
 	}
 }
 

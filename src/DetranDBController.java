@@ -1,31 +1,28 @@
-/*
- * Conecta a database do Detran e recebe as informacoes do veiculo
+/**
+ * Conecta à database do Detran e recebe as informacoes do veiculo.
+ * A conexão com o banco de dados ainda deverá ser implementada.
  */
+
 public class DetranDBController {
 	private String licensePlate;
 	
 	public DetranDBController(String licensePLate) {
-		this.licensePlate = licensePlate;
+		throw new UnsupportedOperationException("Not supported yet.");
 	}
 	
 	public String requestCarInformation() {
-		String info = "";
-		
-		return info;
+		throw new UnsupportedOperationException("Not supported yet.");
 	}
 	
 	public String requestOwnerInformation() {
-		String info = "";
-		
-		return info;
+		throw new UnsupportedOperationException("Not supported yet.");
 	}
 	
 	public void sendAlert() {
-		
+		throw new UnsupportedOperationException("Not supported yet.");
 	}
 	
 	public boolean checkLicensePlate() {
-		// TODO:
-		return true;
+		throw new UnsupportedOperationException("Not supported yet.");
 	}
 }

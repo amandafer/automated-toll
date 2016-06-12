@@ -1,9 +1,8 @@
 /**
  * Classe para modelar a entidade Motorista
- * @author AlbertoPassini
  */
-public class Owner 
-{
+
+public class Owner {
     /* Atributos da classe */
     private String info, CPF, CNH, nome;
     
@@ -11,7 +10,7 @@ public class Owner
         this.info = info;
     }
     
-    /* Esses metodos irao destrinchar as informacoes pegas e separa-las */
+    /* Esses metodos irao destrinchar as informacoes recebidas e separa-las */
     public String getCPF()  {
         return CPF;
     }

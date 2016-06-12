@@ -1,9 +1,11 @@
 /**
- * Classe para modelar a entidade smart-card
- * @author AlbertoPassini
+ * Classe para modelar a entidade smart-card.
  */
+
 public class SmartCard {
-	double BALANCE = 2.00;
+	// TESTING VARIABLE
+	private double BALANCE = 10.0;
+	// END
 	
     /* Atributo da classe */
     private double balance = BALANCE;
@@ -13,14 +15,10 @@ public class SmartCard {
         return this.balance;
     }
     
-    //Método para creditar um valor no smart-card e retornar o saldo atualizado
-    /*
-    public String credita(Double valor) {
-        saldo = saldo + valor;
-        
-        return "Saldo Atual: " + saldo;
+    // Lê o saldo do cartão pelo smart card reader
+    public void readBalance() {
+    	throw new UnsupportedOperationException("Not supported yet.");
     }
-    */
     
     //Método para debitar um valor no smart-card e retornar o saldo atualizado
     public boolean debit(double value) {
